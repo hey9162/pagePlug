@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta charset="utf-8">
+        <meta name="author" content="hueryong">
+        <title></title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <h2> 代码片段   count 为数据的总的条数</h2>
+        <p>#page 为翻页插件的容器</p>
+        <script>
+        var avanAdmin={
+            initPage:function(count){
+                $("#page").tzPage(count, {
+                    num_edge_entries : 2, //边缘页数
+                    num_display_entries :3, //主体页数 后面一部分的页数
+                    current_page:0,//默认跳转页数
+                    showSelect:false,
+                    items_per_page : 20, //每页显示X项
+                    prev_show_always: false,
+                    next_show_always: false,
+                    callback : function(pageNo){ //回调函数
+                        avanAdmin.loadData(pageNo);
+                    }
+                });
+            },
+            loadData:function(pageNo,pageSize,callback){
+                $.ajax({
+                    type:"get",
+                    url:'http://139.196.102.56:9999/message?pageNo=' + pageNo + '&myId=${session.user.wxId!}&thatId=${toUserInfo.wanxinId}',//追加模板页
+                    async: true,
+                    dataType: 'json',
+                    success:function(resp){
+                        if (resp.code == 12000) {
+                            msgData = resp.data.lists;
+                            console.log(resp.data);
+                            msgData.forEach(function (item) {
+                                item.text = aesDecryptText(item.text)
+                            })
+                            var html = template('msgTemp', { data: msgData });
+                            $('#msgContent').html(html);
+                            var count = resp.data.sum;
+                            if(callback)callback(count)
+                        }
+                    }
+                });
+            },
+        };
+        avanAdmin.loadData(0,20,function(count){
+            avanAdmin.initPage(count);
+        })
+</script>
+    </body>
+</html>

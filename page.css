@@ -1,0 +1,117 @@
+#page,
+#page1,
+#page2,
+#page3,
+#page4,
+#page0 {
+  margin: 20px 0;
+  text-align: center;
+}
+.tzPage {
+  display: inline-block;
+  font-size: 14px;
+}
+.tzPage .xxlr_btm {
+  width: 100%;
+  height: 55px;
+  color: #fff;
+  text-align: center;
+  line-height: 55px;
+  position: relative;
+  bottom: 0;
+}
+.tzPage .dataTables_paginate {
+  position: relative;
+  height: 35px;
+}
+.tzPage a,
+.tzPage span,
+.tzPage button {
+  text-decoration: none;
+  border: 1px solid #c5c5c5;
+  color: #999;
+  background-color: #FFFFFF;
+}
+.tzPage a,
+.tzPage span,
+.tzPage button {
+  display: block;
+  float: left;
+  padding: 0 7px;
+  margin-right: 10px;
+  min-width: 25px;
+  text-align: center;
+  line-height: 23px;
+  height: 23px;
+  border-radius: 3px;
+  background-color: #FFFFFF;
+}
+.tzPage .current,
+.tzPage a:hover,
+.tzPage button:hover,
+.tzPage .current.prev:hover {
+  background: #fca2ca;
+  color: #fff;
+  border-color: #fca2ca;
+}
+.tzPage .current {
+  border: 1px solid #fca2ca;
+}
+.tzPage .current.prev,
+.tzPage .current.next {
+  color: #999;
+  border: 1px solid #c5c5c5;
+  background: #fff;
+}
+.tzPage .prev,
+.tzPage .next {
+  width: 60px;
+  min-width: 60px;
+}
+.tzPage .tm_number {
+  margin-right: 10px;
+}
+.tzPage #tm_pagego {
+  height: 23px;
+  width: 39px;
+  float: left;
+  text-align: center;
+  border: 1px solid #c5c5c5;
+  line-height: 22px;
+  color: #999;
+  border-radius: 3px;
+}
+.tzPage .sortdesc,
+.tzPage .sortasc {
+  width: 0;
+  height: 0;
+  display: inline-block;
+  vertical-align: middle;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  margin-left: 5px;
+}
+.tzPage .sortdesc {
+  border-top: 5px solid;
+}
+.tzPage .sortasc {
+  border-bottom: 5px solid;
+}
+.tzPage #excel_file {
+  display: inline;
+  width: 170px;
+}
+.tzPage #word {
+  margin-left: 37%;
+}
+.tzPage .tm_psize_go {
+  margin-right: 4px;
+  float: left;
+  height: 24px;
+  line-height: 17px;
+  position: relative;
+  border: 1px solid #c5c5c5;
+  color: #999;
+  width: 55px;
+  border-radius: 3px;
+}
